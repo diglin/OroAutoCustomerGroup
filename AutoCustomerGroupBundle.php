@@ -2,9 +2,9 @@
 /**
  * Diglin GmbH - Switzerland.
  *
- * @author      Camille Islasse <support at diglin.com>
+ * @author      Sylvain Rayé <support at diglin.com>
  * @category    DigitalDrink - OroCommerce
- * @copyright   2020 - Diglin (https://www.diglin.com)
+ * @copyright   2021 - Diglin (https://www.diglin.com)
  */
 
 namespace Diglin\AutoCustomerGroupBundle;
