@@ -1,0 +1,26 @@
+processes:
+    definitions:
+        auto_customer_group_assignment:
+            label:   'Auto customer group assignment when customer is created'
+            enabled: true
+            entity: Oro\Bundle\CustomerBundle\Entity\Customer
+            order:   10
+            exclude_definitions: [auto_customer_group_assignment]
+            preconditions:
+                '@and':
+                    - '@empty': $group
+            actions_configuration:
+                - '@call_service_method':
+                    conditions:
+                        '@not_empty': $id
+                    service: diglin.auto_customergroup.customer_group.processor
+                    method: assignGroup
+                    method_parameters: [$id]
+
+    triggers:
+        auto_customer_group_assignment:
+            -
+                event: create
+                priority: 10
+                queued: true
+#                time_shift: 30

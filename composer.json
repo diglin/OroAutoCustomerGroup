@@ -1,0 +1,20 @@
+{
+    "name": "diglin/orocommerce-auto-customergroup-assignment",
+    "description": "OroCommerce Bundle to automatically assign a customer group to a newly created customer.",
+    "license": "EUPL-1.2",
+    "authors": [
+        {
+            "name": "Sylvain Rayé",
+            "email": "support@diglin.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4",
+        "oro/commerce": "4.2.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Diglin\\AutoCustomerGroupBundle\\": ""
+        }
+    }
+}

@@ -1,0 +1,28 @@
+system_configuration:
+    groups:
+        customer_group:
+            title: diglin.app.system_configuration.groups.customer_group.title
+            icon: 'fa-user'
+        customer_group_settings:
+            title: diglin.app.system_configuration.groups.customer_group_settings.title
+    fields:
+        diglin_customer_group.assignment_customer_group:
+            data_type: int
+            type: Oro\Bundle\CustomerBundle\Form\Type\CustomerGroupSelectType
+            priority: 10
+            options:
+                label: diglin.app.system_configuration.fields.assignment_customer_group.label
+                tooltip: diglin.app.system_configuration.fields.assignment_customer_group.tooltip
+                required: false
+
+    tree:
+        system_configuration:
+            commerce:
+                children:
+                    customer:
+                        children:
+                            customer_group:
+                                children:
+                                    customer_group_settings:
+                                        children:
+                                            - diglin_customer_group.assignment_customer_group

@@ -1,0 +1,2 @@
+bundles:
+    - { name: Diglin\AutoCustomerGroupBundle\AutoCustomerGroupBundle, priority: 10 }

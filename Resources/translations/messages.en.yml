@@ -1,0 +1,12 @@
+diglin:
+  app:
+    system_configuration:
+      groups:
+        customer_group:
+          title: 'Customer Group'
+        customer_group_settings:
+          title: 'Customer Group Settings'
+      fields:
+        assignment_customer_group:
+          label: 'Default Customer Group to assign'
+          tooltip: 'This customer group will be automatically applied by customer account creation'

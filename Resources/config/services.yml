@@ -1,0 +1,7 @@
+services:
+  diglin.auto_customergroup.customer_group.processor:
+    class: Diglin\AutoCustomerGroupBundle\Processors\AutoCustomerGroupAssignment
+    public: true
+    arguments:
+      - '@doctrine.orm.entity_manager'
+      - '@oro_config.manager'
