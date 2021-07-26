@@ -31,6 +31,9 @@ class AutoCustomerGroupAssignment
     public function assignGroup($customerId): void
     {
         $customerGroupId = $this->getDefaultCustomerGroupIdAssignment();
+        if(!$customerGroupId) {
+            return;
+        }
         $customerGroup = $this->manager->getRepository(CustomerGroup::class)->find($customerGroupId);
 
         $customer = $this->manager->getRepository(Customer::class)->find($customerId);
@@ -43,9 +46,9 @@ class AutoCustomerGroupAssignment
     /**
      * TODO: test on OroCommerce EE with multiple websites / organisations
      */
-    protected function getDefaultCustomerGroupIdAssignment(): int
+    protected function getDefaultCustomerGroupIdAssignment(): ?string
     {
-        return (int)$this->configManager->get(Configuration::getConfigKeyByName(Configuration::ASSIGNMENT_CUSTOMER_GROUP));
+        return $this->configManager->get(Configuration::getConfigKeyByName(Configuration::ASSIGNMENT_CUSTOMER_GROUP));
     }
 
     protected function setGroup(CustomerGroup $group, Customer $customer): void
