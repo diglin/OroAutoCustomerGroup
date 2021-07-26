@@ -30,9 +30,12 @@ class AutoCustomerGroupAssignment
 
     public function assignGroup($customerId): void
     {
-        $customerGroup = $this->getDefaultCustomerGroupAssignment();
-        // reload it due to cascade persist error
-        $customerGroup = $this->manager->getRepository(CustomerGroup::class)->find($customerGroup->getId());
+        $customerGroupId = $this->getDefaultCustomerGroupIdAssignment();
+        if(!$customerGroupId) {
+            return;
+        }
+        $customerGroup = $this->manager->getRepository(CustomerGroup::class)->find($customerGroupId);
+
         $customer = $this->manager->getRepository(Customer::class)->find($customerId);
 
         if ($customer && $customerGroup && $customerGroup instanceof CustomerGroup) {
@@ -43,7 +46,7 @@ class AutoCustomerGroupAssignment
     /**
      * TODO: test on OroCommerce EE with multiple websites / organisations
      */
-    protected function getDefaultCustomerGroupAssignment(): ?CustomerGroup
+    protected function getDefaultCustomerGroupIdAssignment(): ?string
     {
         return $this->configManager->get(Configuration::getConfigKeyByName(Configuration::ASSIGNMENT_CUSTOMER_GROUP));
     }

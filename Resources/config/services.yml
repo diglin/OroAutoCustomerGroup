@@ -5,3 +5,10 @@ services:
     arguments:
       - '@doctrine.orm.entity_manager'
       - '@oro_config.manager'
+
+  Diglin\AutoCustomerGroupBundle\EventListener\SystemConfigListener:
+    arguments:
+      - "@doctrine"
+    tags:
+      - { name: kernel.event_listener, event: oro_config.settings_form_preset, method: onFormPreSetData }
+      - { name: kernel.event_listener, event: oro_config.settings_before_save.diglin_customer_group.assignment_customer_group, method: onSettingsSaveBefore }
