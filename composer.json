@@ -9,8 +9,8 @@
         }
     ],
     "require": {
-        "php": "^7.4",
-        "oro/commerce": "4.2.*"
+        "php": ">=7.4.0 <8.3",
+        "oro/commerce": ">=4.2.0 <5.2"
     },
     "autoload": {
         "psr-4": {
