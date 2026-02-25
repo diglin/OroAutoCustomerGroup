@@ -10,11 +10,12 @@
 namespace Diglin\AutoCustomerGroupBundle;
 
 use Diglin\AutoCustomerGroupBundle\DependencyInjection\AutoCustomerGroupExtension;
+use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class AutoCustomerGroupBundle extends Bundle
 {
-    public function getContainerExtension()
+    public function getContainerExtension(): ?ExtensionInterface
     {
         return new AutoCustomerGroupExtension();
     }
